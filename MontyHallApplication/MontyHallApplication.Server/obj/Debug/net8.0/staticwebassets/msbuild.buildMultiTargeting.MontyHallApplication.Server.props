@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MontyHallApplication.Server.props" />
+</Project>

@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "B9b9DpuOq0EnFADvVa80bnpR+DqWUgOkJefpffWlIz8=",
+  "Source": "MontyHallApplication.Server",
+  "BasePath": "_content/MontyHallApplication.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "D:\\Assignment\\MontyHallApplication\\montyhallapplication.client\\montyhallapplication.client.esproj",
+      "Version": 2,
+      "Source": "montyhallapplication.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

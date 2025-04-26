@@ -1,0 +1,127 @@
+<div class="simulator-container container mt-5">
+  <div class="simulator-header text-center mb-5">
+    <h1 class="display-4 fw-bold text-gradient">
+      <span class="text-primary">Monty Hall Simulation</span>
+    </h1>
+  </div>
+
+  <div class="control-panel card shadow-lg p-5 rounded-4 mb-5 bg-light border-0 border-start border-5 border-primary-subtle">
+    <div class="row g-5 align-items-center">
+      <div class="col-md-6">
+        <div class="stats-grid">
+          <div class="stat-box success; ">
+            <label class="form-label fw-bold fs-5 mb-2 text-primary-emphasis" style=" color: #0d0000;">
+              <i class="bi bi-sliders2-vertical me-2"></i> Choose Number of Trials
+              <span class="badge bg-primary ms-2">{{ numberOfGames }}</span>
+            </label>
+          </div>
+        </div>
+        <div style="text-align-last: center;">
+          <p>Enter the number of trials you want to simulate!</p>
+          <div class="fs-1 text-primary">👇</div>
+          <div class="fs-1 text-primary">
+            <input type="number"
+                   class="form-control form-control-lg w-50 mx-auto custom-number-input"
+                   style="border: inset; border-color: linen; font-size: 22px; "
+                   min="1"
+                   max="10000"
+                   [(ngModel)]="numberOfGames"
+                   placeholder="Enter a number">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="col-md-6" style="padding: 10px; text-align-last: center;">
+        <div class="stats-grid" style="display: inline-flex; gap: 2rem; ">
+          <button type="button"
+                  class="btn btn-strategy-switch fw-semibold py-3 px-4 fs-5"
+                  [class.active]="switchChoice"
+                  (click)="switchChoice=true">
+            <i class="bi bi-arrow-left-right me-2"></i> Switch Doors
+          </button>
+          <button type="button"
+                  class="btn btn-strategy-stay fw-semibold py-3 px-4 fs-5"
+                  [class.active]="!switchChoice"
+                  (click)="switchChoice=false">
+            <i class="bi bi-lock-fill me-2"></i> Stay Put
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="col-md-6" style="padding: 10px; text-align-last: center;">
+        <button class="btn btn-gradient-primary btn-lg px-5 py-3 fw-bold rounded-pill shadow-sm"
+                (click)="runSimulation()"
+                [disabled]="!numberOfGames">
+          <i class="bi bi-lightning-charge-fill me-2"></i>
+          <span class="text-uppercase">Run Simulation </span>
+          <span class="badge bg-white text-primary ms-2">{{ numberOfGames }} Trials</span>
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="result" class="results-card card shadow-lg p-0 overflow-hidden border-0">
+      <div class="results-table-container p-3 bg-light rounded-3" style="background-color: #e9ecef;">
+        <h3 class="mb-3 fw-bold text-primary">
+          <i class="bi bi-graph-up me-2"></i> Simulation Results
+        </h3>
+        <div class="results-table-container p-3 bg-light rounded-3" style="align-content:center; background-color: #e9ecef;">
+          <table class="table table-bordered table-hover" style=" text-align-last: right;">
+            <tbody>
+              <tr>
+                <th class="w-50 bg-light" style="text-align:right; width: 50%">Total Games Played: </th>
+                <td class="fw-bold">{{ result.numberOfGames }}</td>
+              </tr>
+              <tr class="table-success">
+                <th class="bg-light" style="text-align:right">Successful Wins: </th>
+                <td class="fw-bold">{{ result.wins }}</td>
+              </tr>
+              <tr class="table-danger">
+                <th class="bg-light" style="text-align:right">Losses: </th>
+                <td class="fw-bold">{{ result.losses }}</td>
+              </tr>
+              <tr class="table-info">
+                <th class="bg-light" style="text-align:right">Win Rate: </th>
+                <td class="fw-bold">
+                  {{ (result.wins / result.numberOfGames) * 100 | number:'1.2-2' }}%
+                  <small class="text-muted ms-2">
+                    ({{ result.wins }}/{{ result.numberOfGames }})
+                  </small>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="progress" style=" background-color: #e9ecef;">
+        <div class="card-body p-4 bg-light">
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <h5 class="mb-3 text-primary-emphasis fw-bold">Performance Meter</h5>
+            </div>
+            <div class="col-md-6">
+              <div class="stats-grid">
+                <div class="stat-box success">
+                  <div class="stat-value">{{result.wins}}</div>
+                  <div class="stat-label">Correct Choices</div>
+                </div>
+                <div class="stat-box danger">
+                  <div class="stat-value">{{result.losses}}</div>
+                  <div class="stat-label">Incorrect Choices</div>
+                </div>
+                <div class="stat-box primary">
+                  <div class="stat-value">{{result.numberOfGames}}</div>
+                  <div class="stat-label">Total Trials</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

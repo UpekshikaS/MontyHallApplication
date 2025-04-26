@@ -1,0 +1,10 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:62740",
+"RedirectUrl": "",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "D:\\Assignment\\MontyHallApplication\\MontyHallApplication.Server\\..\\montyhallapplication.client",
+"MaxTimeoutInSeconds": "120",
+"KeepRunning": "false"
+}
+}
